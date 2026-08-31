@@ -1,0 +1,153 @@
+{
+  "nav": {
+    "services": "Servicios",
+    "why": "Por qué nosotros",
+    "reviews": "Reseñas",
+    "bookNow": "Reservar"
+  },
+  "hero": {
+    "tagline": "El Handyman de Confianza en Austin",
+    "headline": "Servicios Profesionales\npara tu Hogar.",
+    "subtext": "Reparaciones, instalaciones, mantenimiento y ensamblaje — cubrimos cada rincón de tu hogar en Austin, TX.",
+    "bookNow": "Reservar Ahora",
+    "getQuote": "Pedir Cotización"
+    ,"insured": "Licenciado y asegurado",
+    "response": "Respuesta rápida",
+    "cardEyebrow": "Trabajo bien hecho",
+    "cardTitle": "Tu lista de pendientes, resuelta.",
+    "satisfaction": "Satisfacción",
+    "reviewsCount": "reseñas 5 estrellas",
+    "jobDone": "Proyecto terminado",
+    "today": "Hoy en Austin"
+  },
+  "services": {
+    "title": "Lo Que Hacemos",
+    "subtitle": "Servicios profesionales de handyman para cada área de tu hogar",
+    "items": [
+      {
+        "key": "repairs",
+        "title": "Reparaciones",
+        "description": "Puertas, paredes, canaletas, accesorios — arreglamos lo que está roto, rápido."
+      },
+      {
+        "key": "installation",
+        "title": "Instalaciones",
+        "description": "Montaje de TV, ventiladores, electrodomésticos y más — instalados correctamente."
+      },
+      {
+        "key": "maintenance",
+        "title": "Mantenimiento",
+        "description": "Mantén tu hogar en óptimas condiciones con mantenimiento programado."
+      },
+      {
+        "key": "assembly",
+        "title": "Ensamblaje",
+        "description": "Muebles, estantes, equipos — ensamblados rápido y con seguridad."
+      }
+    ]
+  },
+  "areas": {
+    "eyebrow": "Cobertura completa",
+    "title": "Cada Rincón de tu Hogar",
+    "subtitle": "Interiores y exteriores — lo cubrimos todo",
+    "cardTitle": "Un solo profesional para toda tu lista.",
+    "cardLocation": "Austin y alrededores",
+    "list": [
+      "Baño", "Cocina", "Sala", "Habitación",
+      "Sótano", "Ático", "Garaje", "Deck",
+      "Porche", "Clóset", "Puertas", "Ventanas",
+      "Paredes Interiores", "Paredes Exteriores", "Canaletas", "Otras Áreas"
+    ]
+  },
+  "why": {
+    "eyebrow": "La diferencia Santi Handyman",
+    "title": "¿Por Qué Santi Handyman?",
+    "subtitle": "Servicio local, comunicación clara y atención al detalle desde la primera llamada hasta el último tornillo.",
+    "items": [
+      {
+        "title": "Licenciado y Asegurado",
+        "description": "Cada trabajo realizado de forma segura y profesional — tu hogar está protegido."
+      },
+      {
+        "title": "Local en Austin",
+        "description": "Basado aquí en Austin. Conocemos la ciudad, servimos a la comunidad."
+      },
+      {
+        "title": "Respuesta Rápida",
+        "description": "Disponibilidad el mismo día cuando más lo necesitas. Sin largas esperas."
+      },
+      {
+        "title": "Calidad Garantizada",
+        "description": "No paramos hasta que estés completamente satisfecho con el resultado."
+      }
+    ]
+  },
+  "booking": {
+    "title": "Solicitar Servicio",
+    "subtitle": "Cuéntanos qué necesitas — nosotros nos encargamos",
+    "next": "Siguiente",
+    "back": "Volver",
+    "step1": {
+      "title": "¿Qué necesitas?",
+      "subtitle": "Selecciona el tipo de servicio"
+    },
+    "step2": {
+      "title": "¿Dónde en tu hogar?",
+      "subtitle": "Selecciona todas las áreas que aplican"
+    },
+    "step3": {
+      "title": "Algunos detalles más",
+      "subtitle": "Ayúdanos a entender tu proyecto",
+      "urgency": "¿Con qué urgencia lo necesitas?",
+      "asap": "Lo antes posible",
+      "quote": "Primero quiero una cotización",
+      "description": "Describe lo que necesitas",
+      "descriptionPlaceholder": "Ej: Necesito montar un TV de 65\" e instalar un ventilador de techo...",
+      "name": "Tu nombre",
+      "namePlaceholder": "Nombre completo",
+      "email": "Correo electrónico",
+      "emailPlaceholder": "tu@correo.com",
+      "phone": "Teléfono",
+      "phonePlaceholder": "(512) 000-0000",
+      "submit": "Enviar Solicitud",
+      "submitting": "Enviando...",
+      "success": "¡Solicitud enviada! Te contactaremos pronto.",
+      "error": "Algo salió mal. Por favor intenta de nuevo."
+    }
+  },
+  "reviews": {
+    "title": "Lo Que Dicen los Clientes",
+    "subtitle": "Con la confianza de propietarios en todo Austin",
+    "viewProfile": "Ver todas las reseñas en Thumbtack",
+    "requestService": "Solicitar un servicio",
+    "ratingLabel": "Calificación perfecta de 5 estrellas",
+    "reviewsCount": "10 reseñas verificadas",
+    "items": [
+      {
+        "name": "Sarah M.",
+        "location": "South Austin",
+        "text": "Santiago montó nuestro TV y arregló una puerta el mismo día. Muy profesional, rápido y precios justos. ¡Lo recomiendo!",
+        "rating": 5
+      },
+      {
+        "name": "James R.",
+        "location": "Round Rock",
+        "text": "Ensambló todos nuestros muebles de IKEA en pocas horas. Trabajo limpio, sin daños, y hasta limpió al terminar.",
+        "rating": 5
+      },
+      {
+        "name": "Laura T.",
+        "location": "Cedar Park",
+        "text": "Excelente trabajo en la reparación del deck y la instalación de canaletas. Precios honestos y gran calidad.",
+        "rating": 5
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Servicios profesionales de handyman en Austin, TX.",
+    "location": "Austin, Texas",
+    "thumbtack": "Reservar en Thumbtack",
+    "cta": "Solicitar servicio",
+    "rights": "Todos los derechos reservados."
+  }
+}

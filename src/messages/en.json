@@ -1,0 +1,153 @@
+{
+  "nav": {
+    "services": "Services",
+    "why": "Why us",
+    "reviews": "Reviews",
+    "bookNow": "Book Now"
+  },
+  "hero": {
+    "tagline": "Austin's Trusted Handyman",
+    "headline": "Professional Home\nServices, Done Right.",
+    "subtext": "Repairs, installation, maintenance & assembly — every corner of your home covered in Austin, TX.",
+    "bookNow": "Book Now",
+    "getQuote": "Get a Free Quote"
+    ,"insured": "Licensed & insured",
+    "response": "Fast response",
+    "cardEyebrow": "Work done right",
+    "cardTitle": "Your home to-do list, handled.",
+    "satisfaction": "Satisfaction",
+    "reviewsCount": "5-star reviews",
+    "jobDone": "Project complete",
+    "today": "Today in Austin"
+  },
+  "services": {
+    "title": "What We Do",
+    "subtitle": "Professional handyman services for every corner of your home",
+    "items": [
+      {
+        "key": "repairs",
+        "title": "Repairs",
+        "description": "Doors, walls, gutters, fixtures — we fix what's broken, fast."
+      },
+      {
+        "key": "installation",
+        "title": "Installation",
+        "description": "TV mounting, ceiling fans, appliances and more — installed correctly."
+      },
+      {
+        "key": "maintenance",
+        "title": "Maintenance",
+        "description": "Keep your home in top shape with scheduled upkeep and inspections."
+      },
+      {
+        "key": "assembly",
+        "title": "Assembly",
+        "description": "Furniture, shelving, gym equipment — assembled quickly and safely."
+      }
+    ]
+  },
+  "areas": {
+    "eyebrow": "Full-home coverage",
+    "title": "Every Corner of Your Home",
+    "subtitle": "Indoor and outdoor — we service it all",
+    "cardTitle": "One trusted pro for your whole list.",
+    "cardLocation": "Austin and surrounding areas",
+    "list": [
+      "Bathroom", "Kitchen", "Living Room", "Bedroom",
+      "Basement", "Attic", "Garage", "Deck",
+      "Porch", "Closet", "Doors", "Windows",
+      "Interior Walls", "Exterior Walls", "Gutters", "Other Areas"
+    ]
+  },
+  "why": {
+    "eyebrow": "The Santi Handyman difference",
+    "title": "Why Santi Handyman?",
+    "subtitle": "Local service, clear communication and care for every detail—from the first call to the final screw.",
+    "items": [
+      {
+        "title": "Licensed & Insured",
+        "description": "Every job done safely and professionally — your home is protected."
+      },
+      {
+        "title": "Austin Local",
+        "description": "Based right here in Austin. We know the area, we serve the community."
+      },
+      {
+        "title": "Fast Response",
+        "description": "Same-day availability when you need it most. No long wait times."
+      },
+      {
+        "title": "Quality Guaranteed",
+        "description": "We don't stop until you're completely satisfied with the result."
+      }
+    ]
+  },
+  "booking": {
+    "title": "Request Service",
+    "subtitle": "Tell us what you need — we'll handle the rest",
+    "next": "Next",
+    "back": "Back",
+    "step1": {
+      "title": "What do you need?",
+      "subtitle": "Select a service type to get started"
+    },
+    "step2": {
+      "title": "Where in your home?",
+      "subtitle": "Select all areas that apply"
+    },
+    "step3": {
+      "title": "A few more details",
+      "subtitle": "Help us understand your project",
+      "urgency": "How soon do you need this?",
+      "asap": "As soon as possible",
+      "quote": "Request a quote first",
+      "description": "Describe what you need",
+      "descriptionPlaceholder": "E.g., I need to mount a 65\" TV and install a ceiling fan...",
+      "name": "Your name",
+      "namePlaceholder": "Full name",
+      "email": "Email",
+      "emailPlaceholder": "you@example.com",
+      "phone": "Phone",
+      "phonePlaceholder": "(512) 000-0000",
+      "submit": "Send Request",
+      "submitting": "Sending...",
+      "success": "Request sent! We'll be in touch shortly.",
+      "error": "Something went wrong. Please try again."
+    }
+  },
+  "reviews": {
+    "title": "What Customers Say",
+    "subtitle": "Trusted by homeowners across Austin",
+    "viewProfile": "See all reviews on Thumbtack",
+    "requestService": "Request a service",
+    "ratingLabel": "Perfect 5-star rating",
+    "reviewsCount": "10 verified reviews",
+    "items": [
+      {
+        "name": "Sarah M.",
+        "location": "South Austin",
+        "text": "Santiago mounted our TV and fixed a door the same day. Super professional, fast, and fair pricing. Highly recommend!",
+        "rating": 5
+      },
+      {
+        "name": "James R.",
+        "location": "Round Rock",
+        "text": "Assembled all our IKEA furniture in a few hours. Clean work, no damage, and he even cleaned up after. Will use again.",
+        "rating": 5
+      },
+      {
+        "name": "Laura T.",
+        "location": "Cedar Park",
+        "text": "Great work on our deck repair and gutter installation. Honest pricing and excellent quality. Very reliable.",
+        "rating": 5
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Professional handyman services in Austin, TX.",
+    "location": "Austin, Texas",
+    "thumbtack": "Book on Thumbtack",
+    "cta": "Request service",
+    "rights": "All rights reserved."
+  }
+}

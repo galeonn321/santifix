@@ -1,0 +1,29 @@
+{
+  "name": "santi-handyman",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "lucide-react": "^1.25.0",
+    "motion": "^12.42.2",
+    "next": "16.2.11",
+    "next-intl": "^4.13.3",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "resend": "^6.18.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.1.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@typescript/native-preview": "7.0.0-dev.20260707.2",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2"
+  }
+}

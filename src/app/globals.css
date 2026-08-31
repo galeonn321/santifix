@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-950: #001A3B;
+  --color-navy-900: #00254F;
+  --color-navy-800: #00336B;
+  --color-navy-700: #07488F;
+  --color-navy-600: #175DA8;
+  --color-navy-500: #3778BC;
+  --color-navy-400: #6899D3;
+  --color-navy-300: #9DC1EB;
+  --color-navy-200: #C5DAF2;
+  --color-navy-100: #E0ECF8;
+  --color-navy-50: #F0F6FC;
+  --color-cream: #F8FAFD;
+  --color-cream-dark: #E6EDF5;
+  --color-copper: #FF6413;
+  --color-copper-light: #FFB58A;
+  --color-brand-blue: #075DE8;
+  --color-brand-blue-light: #75A7FF;
+  --color-brand-orange: #FF6413;
+  --font-sans: "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+html,
+body {
+  overscroll-behavior: none;
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: #075DE8;
+  color: #FFFFFF;
+}
+
+button, a { -webkit-tap-highlight-color: transparent; }
+
+.eyebrow {
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.paper-grid {
+  background-image:
+    linear-gradient(rgba(0,37,79,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,37,79,.055) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+body {
+  background-color: #F8FAFD;
+  color: #001A3B;
+  font-family: "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+}
