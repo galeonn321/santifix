@@ -1,8 +1,6 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const clean = (value: unknown, max = 500) =>
   String(value ?? '')
     .trim()
@@ -12,9 +10,14 @@ const clean = (value: unknown, max = 500) =>
     })[character]!);
 
 export async function POST(req: Request) {
-  if (!process.env.RESEND_API_KEY || !process.env.CONTACT_EMAIL) {
+  const apiKey = process.env.RESEND_API_KEY;
+  const contactEmail = process.env.CONTACT_EMAIL;
+
+  if (!apiKey || !contactEmail) {
     return NextResponse.json({ error: 'Contact service is not configured' }, { status: 503 });
   }
+
+  const resend = new Resend(apiKey);
 
   const body = await req.json().catch(() => null);
   if (!body || typeof body !== 'object') {
@@ -42,7 +45,7 @@ export async function POST(req: Request) {
 
   const { error } = await resend.emails.send({
     from: process.env.RESEND_FROM_EMAIL ?? 'onboarding@resend.dev',
-    to: process.env.CONTACT_EMAIL!,
+    to: contactEmail,
     subject: `[Santi Handyman] ${urgencyLabel} — ${service} request from ${name}`,
     html: `
       <h2>New service request from Santi Handyman</h2>
