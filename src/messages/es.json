@@ -3,15 +3,22 @@
     "services": "Servicios",
     "why": "Por qué nosotros",
     "reviews": "Reseñas",
-    "bookNow": "Reservar"
+    "bookNow": "Reservar",
+    "availability": "Disponible en Austin",
+    "available": "Disponible",
+    "ariaLabel": "Navegación principal",
+    "menu": "Abrir menú",
+    "close": "Cerrar menú"
   },
   "hero": {
-    "tagline": "El Handyman de Confianza en Austin",
     "headline": "Servicios Profesionales\npara tu Hogar.",
-    "subtext": "Reparaciones, instalaciones, mantenimiento y ensamblaje — cubrimos cada rincón de tu hogar en Austin, TX.",
+    "subtext": "Reparaciones, instalaciones, mantenimiento y ensamblaje para cada rincón de tu hogar en Austin, TX.",
     "bookNow": "Reservar Ahora",
-    "getQuote": "Pedir Cotización"
-    ,"insured": "Licenciado y asegurado",
+    "getQuote": "Pedir Cotización",
+    "viewServices": "Ver servicios",
+    "imageAlt": "Herramientas profesionales de handyman sobre una mesa de trabajo de madera",
+    "thumbtackReviews": "16 reseñas de 5 estrellas en Thumbtack",
+    "jobsDone": "Más de 30 trabajos realizados",
     "response": "Respuesta rápida",
     "cardEyebrow": "Trabajo bien hecho",
     "cardTitle": "Tu lista de pendientes, resuelta.",
@@ -27,12 +34,12 @@
       {
         "key": "repairs",
         "title": "Reparaciones",
-        "description": "Puertas, paredes, canaletas, accesorios — arreglamos lo que está roto, rápido."
+        "description": "Puertas, paredes, canaletas y accesorios. Arreglamos lo que está roto rápidamente."
       },
       {
         "key": "installation",
         "title": "Instalaciones",
-        "description": "Montaje de TV, ventiladores, electrodomésticos y más — instalados correctamente."
+        "description": "Montaje de TV, ventiladores, electrodomésticos y más, todo instalado correctamente."
       },
       {
         "key": "maintenance",
@@ -42,14 +49,14 @@
       {
         "key": "assembly",
         "title": "Ensamblaje",
-        "description": "Muebles, estantes, equipos — ensamblados rápido y con seguridad."
+        "description": "Muebles, estantes y equipos, ensamblados rápidamente y con seguridad."
       }
     ]
   },
   "areas": {
     "eyebrow": "Cobertura completa",
     "title": "Cada Rincón de tu Hogar",
-    "subtitle": "Interiores y exteriores — lo cubrimos todo",
+    "subtitle": "Interiores y exteriores. Lo cubrimos todo.",
     "cardTitle": "Un solo profesional para toda tu lista.",
     "cardLocation": "Austin y alrededores",
     "list": [
@@ -65,8 +72,8 @@
     "subtitle": "Servicio local, comunicación clara y atención al detalle desde la primera llamada hasta el último tornillo.",
     "items": [
       {
-        "title": "Licenciado y Asegurado",
-        "description": "Cada trabajo realizado de forma segura y profesional — tu hogar está protegido."
+        "title": "Experiencia Comprobada",
+        "description": "Más de 30 proyectos realizados con cuidado y trabajo profesional."
       },
       {
         "title": "Local en Austin",
@@ -84,7 +91,7 @@
   },
   "booking": {
     "title": "Solicitar Servicio",
-    "subtitle": "Cuéntanos qué necesitas — nosotros nos encargamos",
+    "subtitle": "Cuéntanos qué necesitas. Nosotros nos encargamos.",
     "next": "Siguiente",
     "back": "Volver",
     "step1": {

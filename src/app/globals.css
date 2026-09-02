@@ -28,6 +28,10 @@ body {
   scroll-behavior: smooth;
 }
 
+section[id] {
+  scroll-margin-top: 7rem;
+}
+
 ::selection {
   background: #075DE8;
   color: #FFFFFF;
