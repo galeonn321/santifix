@@ -12,7 +12,7 @@ const FALLBACK_ICONS: Record<string, string> = {
 export default async function Services() {
   const locale = await getLocale();
   const [portfolio, t] = await Promise.all([
-    getServicePortfolio(locale === 'es' ? 'es-MX' : 'en-US'),
+    getServicePortfolio(locale),
     getTranslations('services'),
   ]);
 
@@ -31,11 +31,16 @@ export default async function Services() {
     order: index + 1,
   }));
 
+  const initialProject = portfolio.projects.length > 0
+    ? portfolio.projects[Math.floor(Math.random() * portfolio.projects.length)]
+    : undefined;
+
   return (
     <ServicesExplorer
       categories={portfolio.categories.length > 0 ? portfolio.categories : fallbackCategories}
       serviceTypes={portfolio.serviceTypes}
       projects={portfolio.projects}
+      initialProjectId={initialProject?.id}
     />
   );
 }
