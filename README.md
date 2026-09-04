@@ -31,4 +31,16 @@ RESEND_API_KEY=
 RESEND_FROM_EMAIL=
 CONTACT_EMAIL=
 NEXT_PUBLIC_SITE_URL=https://santihandyman.com
+CONTENTFUL_SPACE_ID=
+CONTENTFUL_ACCESS_TOKEN=
+CONTENTFUL_ENVIRONMENT=master
+CONTENTFUL_WEBHOOK_SECRET=
 ```
+
+## Contentful portfolio
+
+The services portfolio reads published `serviceCategory`, `serviceType`, and
+`project` entries from Contentful. Configure the production webhook as a
+`POST` request to `/api/contentful/revalidate` and send the shared secret in
+the `x-contentful-webhook-secret` header. Subscribe only to Entry and Asset
+publish, unpublish, and delete events in the `master` environment.
