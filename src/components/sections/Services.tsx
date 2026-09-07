@@ -1,3 +1,5 @@
+import { randomInt } from 'node:crypto';
+import { connection } from 'next/server';
 import { getLocale, getTranslations } from 'next-intl/server';
 import ServicesExplorer from './ServicesExplorer';
 import { getServicePortfolio, type ServiceCategory } from '@/lib/contentful';
@@ -10,6 +12,8 @@ const FALLBACK_ICONS: Record<string, string> = {
 };
 
 export default async function Services() {
+  // Keep the first portfolio project fresh on every visit instead of fixing it at build time.
+  await connection();
   const locale = await getLocale();
   const [portfolio, t] = await Promise.all([
     getServicePortfolio(locale),
@@ -32,7 +36,7 @@ export default async function Services() {
   }));
 
   const initialProject = portfolio.projects.length > 0
-    ? portfolio.projects[Math.floor(Math.random() * portfolio.projects.length)]
+    ? portfolio.projects[randomInt(portfolio.projects.length)]
     : undefined;
 
   return (

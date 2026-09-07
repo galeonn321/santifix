@@ -16,11 +16,15 @@ Open [http://localhost:3000/es](http://localhost:3000/es) or [http://localhost:3
 ## Checks
 
 ```bash
+pnpm lint
+pnpm test
 pnpm typecheck
 pnpm build
 ```
 
-The project uses TypeScript 7. Next 16 does not yet recognize TypeScript 7's new package entry point, so the build uses the official `@typescript/native-preview` compatibility path and type checking runs separately through `pnpm typecheck`.
+The project uses the stable TypeScript 7 compiler for `pnpm typecheck` and keeps
+the TypeScript 6 compatibility package available for tools that still use the
+compiler API. Vercel is pinned to Node.js 24 LTS through `package.json`.
 
 ## Contact form
 
@@ -30,7 +34,7 @@ Create `.env.local` with:
 RESEND_API_KEY=
 RESEND_FROM_EMAIL=
 CONTACT_EMAIL=
-NEXT_PUBLIC_SITE_URL=https://santihandyman.com
+NEXT_PUBLIC_SITE_URL=https://www.santihandy.com
 CONTENTFUL_SPACE_ID=
 CONTENTFUL_ACCESS_TOKEN=
 CONTENTFUL_ENVIRONMENT=master

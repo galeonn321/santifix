@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
+import Image from 'next/image';
 
 const revealTransition = {
   duration: 0.9,
@@ -15,22 +16,26 @@ export default function IntroAnimation() {
   const [split, setSplit] = useState(false);
 
   useEffect(() => {
-    if (sessionStorage.getItem('santi-handyman-intro-v10')) {
-      setShow(false);
-      return;
-    }
+    let splitTimer: number | undefined;
+    let hideTimer: number | undefined;
+    const initializeTimer = window.setTimeout(() => {
+      if (sessionStorage.getItem('santi-handyman-intro-v10')) {
+        setShow(false);
+        return;
+      }
 
-    document.body.style.overflow = 'hidden';
-    setShow(true);
-
-    const splitTimer = window.setTimeout(() => setSplit(true), 1300);
-    const hideTimer = window.setTimeout(() => {
-      document.body.style.overflow = '';
-      sessionStorage.setItem('santi-handyman-intro-v10', '1');
-      setShow(false);
-    }, 2350);
+      document.body.style.overflow = 'hidden';
+      setShow(true);
+      splitTimer = window.setTimeout(() => setSplit(true), 1300);
+      hideTimer = window.setTimeout(() => {
+        document.body.style.overflow = '';
+        sessionStorage.setItem('santi-handyman-intro-v10', '1');
+        setShow(false);
+      }, 2350);
+    }, 0);
 
     return () => {
+      window.clearTimeout(initializeTimer);
       window.clearTimeout(splitTimer);
       window.clearTimeout(hideTimer);
     };
@@ -83,9 +88,11 @@ export default function IntroAnimation() {
           ? revealTransition
           : { duration: 0.72, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
       >
-        <img
+        <Image
           src="/santi-handyman-mark.svg"
           alt=""
+          width={512}
+          height={512}
           className="h-full w-full object-contain"
         />
       </motion.div>
@@ -107,9 +114,11 @@ export default function IntroAnimation() {
           ? revealTransition
           : { duration: 0.72, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
       >
-        <img
+        <Image
           src="/santi-handyman-mark.svg"
           alt=""
+          width={512}
+          height={512}
           className="h-full w-full object-contain"
         />
       </motion.div>

@@ -1,15 +1,34 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
+import { parseContactSubmission } from '@/lib/contact';
 
-const clean = (value: unknown, max = 500) =>
-  String(value ?? '')
-    .trim()
-    .slice(0, max)
-    .replace(/[&<>'"]/g, character => ({
-      '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;',
-    })[character]!);
+export const runtime = 'nodejs';
+
+const WINDOW_MS = 10 * 60 * 1000;
+const MAX_REQUESTS = 5;
+const attempts = new Map<string, { count: number; resetAt: number }>();
+
+function isRateLimited(req: Request) {
+  const now = Date.now();
+  const forwarded = req.headers.get('x-forwarded-for');
+  const ip = forwarded?.split(',')[0]?.trim() || req.headers.get('x-real-ip') || 'unknown';
+  const current = attempts.get(ip);
+
+  if (!current || current.resetAt <= now) {
+    attempts.set(ip, { count: 1, resetAt: now + WINDOW_MS });
+    return false;
+  }
+
+  current.count += 1;
+  return current.count > MAX_REQUESTS;
+}
 
 export async function POST(req: Request) {
+  const contentLength = Number(req.headers.get('content-length') ?? 0);
+  if (contentLength > 25_000) {
+    return NextResponse.json({ error: 'Request too large' }, { status: 413 });
+  }
+
   const apiKey = process.env.RESEND_API_KEY;
   const contactEmail = process.env.CONTACT_EMAIL;
 
@@ -20,25 +39,26 @@ export async function POST(req: Request) {
   const resend = new Resend(apiKey);
 
   const body = await req.json().catch(() => null);
-  if (!body || typeof body !== 'object') {
-    return NextResponse.json({ error: 'Invalid request' }, { status: 400 });
+  const parsed = parseContactSubmission(body);
+
+  // Quietly accept bot submissions so automated senders do not learn how to bypass the trap.
+  if (!parsed.ok && parsed.reason === 'spam') {
+    return NextResponse.json({ success: true });
   }
 
-  const service = clean(body.service, 80);
-  const urgency = clean(body.urgency, 30);
-  const description = clean(body.description, 2000);
-  const name = clean(body.name, 120);
-  const email = clean(body.email, 200);
-  const phone = clean(body.phone, 40);
-  const areas = Array.isArray(body.areas) ? body.areas.slice(0, 20).map((area: unknown) => clean(area, 80)) : [];
-
-  if (!service || areas.length === 0 || !['asap', 'quote'].includes(urgency) || !name || (!email && !phone)) {
-    return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+  if (!parsed.ok) {
+    const error = parsed.reason === 'invalid-email' ? 'Invalid email' : 'Missing required fields';
+    return NextResponse.json({ error }, { status: 400 });
   }
 
-  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return NextResponse.json({ error: 'Invalid email' }, { status: 400 });
+  if (isRateLimited(req)) {
+    return NextResponse.json(
+      { error: 'Too many requests. Please try again later.' },
+      { status: 429, headers: { 'Retry-After': '600' } },
+    );
   }
+
+  const { service, areas, urgency, description, name, email, phone } = parsed.value;
 
   const urgencyLabel = urgency === 'asap' ? 'ASAP' : 'Quote first';
   const areasLabel = areas.join(', ');
@@ -46,6 +66,7 @@ export async function POST(req: Request) {
   const { error } = await resend.emails.send({
     from: process.env.RESEND_FROM_EMAIL ?? 'onboarding@resend.dev',
     to: contactEmail,
+    replyTo: email || undefined,
     subject: `[Santi Handyman] ${urgencyLabel} — ${service} request from ${name}`,
     html: `
       <h2>New service request from Santi Handyman</h2>

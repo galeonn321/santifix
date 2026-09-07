@@ -48,14 +48,14 @@ interface ContentfulLink {
   sys?: { id?: string };
 }
 
-interface ContentfulEntry {
+export interface ContentfulEntry {
   sys: { id: string };
   fields: Record<string, unknown>;
 }
 
-interface ContentfulAsset extends ContentfulEntry {}
+export type ContentfulAsset = ContentfulEntry;
 
-interface ContentfulResponse {
+export interface ContentfulResponse {
   items?: ContentfulEntry[];
   includes?: { Asset?: ContentfulAsset[] };
 }
@@ -131,61 +131,69 @@ export async function getServicePortfolio(siteLocale: string): Promise<ServicePo
       fetchContentType('project', contentfulLocale),
     ]);
 
-    const categories = (categoryResponse.items ?? [])
-      .map(({ sys, fields }) => ({
-        id: sys.id,
-        name: text(fields.name),
-        slug: text(fields.slug),
-        description: text(fields.description),
-        icon: text(fields.icon),
-        order: number(fields.order),
-      }))
-      .filter(category => category.name && category.slug)
-      .sort((a, b) => a.order - b.order);
-
-    const serviceTypes = (typeResponse.items ?? [])
-      .map(({ sys, fields }) => ({
-        id: sys.id,
-        name: text(fields.name),
-        slug: text(fields.slug),
-        description: text(fields.description),
-        categoryId: linkedId(fields.category),
-        order: number(fields.order),
-      }))
-      .filter(serviceType => serviceType.name && serviceType.slug && serviceType.categoryId)
-      .sort((a, b) => a.order - b.order);
-
-    const assets = new Map(
-      (projectResponse.includes?.Asset ?? []).map(asset => [asset.sys.id, asset]),
-    );
-
-    const projects = (projectResponse.items ?? [])
-      .map(({ sys, fields }) => {
-        const beforeImage = imageFromAsset(assets.get(linkedId(fields.beforeImage)));
-        const afterImage = imageFromAsset(assets.get(linkedId(fields.afterImage)));
-
-        if (!beforeImage || !afterImage) return null;
-
-        return {
-          id: sys.id,
-          title: text(fields.title),
-          slug: text(fields.slug),
-          summary: text(fields.summary),
-          serviceTypeId: linkedId(fields.serviceType),
-          beforeImage,
-          afterImage,
-          location: text(fields.location),
-          completedAt: text(fields.completedAt),
-          featured: boolean(fields.featured),
-          order: number(fields.order),
-        } satisfies Project;
-      })
-      .filter((project): project is Project => Boolean(project?.title && project.serviceTypeId))
-      .sort((a, b) => Number(b.featured) - Number(a.featured) || a.order - b.order);
-
-    return { categories, serviceTypes, projects };
+    return normalizeServicePortfolio(categoryResponse, typeResponse, projectResponse);
   } catch (error) {
     console.error('Unable to load the Contentful service portfolio.', error);
     return emptyPortfolio;
   }
+}
+
+export function normalizeServicePortfolio(
+  categoryResponse: ContentfulResponse,
+  typeResponse: ContentfulResponse,
+  projectResponse: ContentfulResponse,
+): ServicePortfolio {
+  const categories = (categoryResponse.items ?? [])
+    .map(({ sys, fields }) => ({
+      id: sys.id,
+      name: text(fields.name),
+      slug: text(fields.slug),
+      description: text(fields.description),
+      icon: text(fields.icon),
+      order: number(fields.order),
+    }))
+    .filter(category => category.name && category.slug)
+    .sort((a, b) => a.order - b.order);
+
+  const serviceTypes = (typeResponse.items ?? [])
+    .map(({ sys, fields }) => ({
+      id: sys.id,
+      name: text(fields.name),
+      slug: text(fields.slug),
+      description: text(fields.description),
+      categoryId: linkedId(fields.category),
+      order: number(fields.order),
+    }))
+    .filter(serviceType => serviceType.name && serviceType.slug && serviceType.categoryId)
+    .sort((a, b) => a.order - b.order);
+
+  const assets = new Map(
+    (projectResponse.includes?.Asset ?? []).map(asset => [asset.sys.id, asset]),
+  );
+
+  const projects = (projectResponse.items ?? [])
+    .map(({ sys, fields }) => {
+      const beforeImage = imageFromAsset(assets.get(linkedId(fields.beforeImage)));
+      const afterImage = imageFromAsset(assets.get(linkedId(fields.afterImage)));
+
+      if (!beforeImage || !afterImage) return null;
+
+      return {
+        id: sys.id,
+        title: text(fields.title),
+        slug: text(fields.slug),
+        summary: text(fields.summary),
+        serviceTypeId: linkedId(fields.serviceType),
+        beforeImage,
+        afterImage,
+        location: text(fields.location),
+        completedAt: text(fields.completedAt),
+        featured: boolean(fields.featured),
+        order: number(fields.order),
+      } satisfies Project;
+    })
+    .filter((project): project is Project => Boolean(project?.title && project.serviceTypeId))
+    .sort((a, b) => Number(b.featured) - Number(a.featured) || a.order - b.order);
+
+  return { categories, serviceTypes, projects };
 }

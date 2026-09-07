@@ -2,28 +2,38 @@
   "name": "santi-handyman",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
+  "packageManager": "pnpm@11.25.0",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "pnpm typecheck && next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "lint": "eslint .",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "check": "pnpm lint && pnpm test && pnpm build"
   },
   "dependencies": {
-    "lucide-react": "^1.25.0",
-    "motion": "^12.42.2",
-    "next": "16.2.11",
-    "next-intl": "^4.13.3",
+    "lucide-react": "^1.42.0",
+    "motion": "^13.2.0",
+    "next": "16.3.4",
+    "next-intl": "^4.14.2",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "resend": "^6.18.0"
+    "resend": "^6.26.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^26.1.1",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
-    "@typescript/native-preview": "7.0.0-dev.20260707.2",
+    "@typescript/native": "npm:typescript@7.0.2",
+    "eslint": "9.39.2",
+    "eslint-config-next": "16.3.4",
     "tailwindcss": "^4.3.3",
-    "typescript": "^7.0.2"
+    "typescript": "npm:@typescript/typescript6@^6.0.2",
+    "vitest": "^5.0.0"
   }
 }
