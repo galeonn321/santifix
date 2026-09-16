@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTranslations } from 'next-intl';
 import { CheckCircle, ChevronRight, ChevronLeft } from 'lucide-react';
@@ -44,6 +44,8 @@ export default function BookingForm() {
     description: '', name: '', email: '', phone: '',
   });
   const [status, setStatus] = useState<Status>('idle');
+  const [website, setWebsite] = useState('');
+  const startedAt = useRef<number | null>(null);
 
   const go = (next: 1 | 2 | 3) => {
     setDir(next > step ? 1 : -1);
@@ -62,7 +64,7 @@ export default function BookingForm() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, website, startedAt: startedAt.current ?? 0 }),
       });
       if (!res.ok) throw new Error();
       setStatus('success');
@@ -115,6 +117,18 @@ export default function BookingForm() {
         </div>
 
         <div className="bg-white rounded-[2rem] p-6 sm:p-9 shadow-[0_30px_80px_rgba(0,0,0,.25)] overflow-hidden">
+          <div className="absolute -left-[10000px]" aria-hidden="true">
+            <label htmlFor="company-website">Website</label>
+            <input
+              id="company-website"
+              name="website"
+              type="text"
+              value={website}
+              onChange={event => setWebsite(event.target.value)}
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </div>
           {status === 'success' ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -136,7 +150,10 @@ export default function BookingForm() {
                     {SERVICES.map((s, index) => (
                       <button
                         key={s}
-                        onClick={() => setForm(p => ({ ...p, service: s }))}
+                        onClick={() => {
+                          startedAt.current ??= Date.now();
+                          setForm(p => ({ ...p, service: s }));
+                        }}
                         className={`p-5 rounded-2xl border-2 text-left transition-all duration-200 ${
                           form.service === s
                             ? 'border-brand-blue bg-brand-blue/5'

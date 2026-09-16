@@ -3,15 +3,22 @@
     "services": "Servicios",
     "why": "Por qué nosotros",
     "reviews": "Reseñas",
-    "bookNow": "Reservar"
+    "bookNow": "Reservar",
+    "availability": "Disponible en Austin",
+    "available": "Disponible",
+    "ariaLabel": "Navegación principal",
+    "menu": "Abrir menú",
+    "close": "Cerrar menú"
   },
   "hero": {
-    "tagline": "El Handyman de Confianza en Austin",
     "headline": "Servicios Profesionales\npara tu Hogar.",
-    "subtext": "Reparaciones, instalaciones, mantenimiento y ensamblaje — cubrimos cada rincón de tu hogar en Austin, TX.",
+    "subtext": "Reparaciones, instalaciones, mantenimiento y ensamblaje para cada rincón de tu hogar en Austin, TX.",
     "bookNow": "Reservar Ahora",
-    "getQuote": "Pedir Cotización"
-    ,"insured": "Licenciado y asegurado",
+    "getQuote": "Pedir Cotización",
+    "viewServices": "Ver servicios",
+    "imageAlt": "Herramientas profesionales de handyman sobre una mesa de trabajo de madera",
+    "thumbtackReviews": "16 reseñas de 5 estrellas en Thumbtack",
+    "jobsDone": "Más de 30 trabajos realizados",
     "response": "Respuesta rápida",
     "cardEyebrow": "Trabajo bien hecho",
     "cardTitle": "Tu lista de pendientes, resuelta.",
@@ -23,16 +30,40 @@
   "services": {
     "title": "Lo Que Hacemos",
     "subtitle": "Servicios profesionales de handyman para cada área de tu hogar",
+    "exploreIntro": "Explora nuestros trabajos por categoría, encuentra el tipo de proyecto que necesitas y descubre resultados reales antes de solicitar tu servicio.",
+    "chooseCategory": "Elige una categoría",
+    "chooseCategoryHint": "Toca una tarjeta para explorar",
+    "categoryStats": "{types, plural, =0 {Sin tipos} one {# tipo} other {# tipos}} · {projects, plural, =0 {Sin proyectos} one {# proyecto} other {# proyectos}}",
+    "projectCountShort": "{count, plural, =0 {Sin proyectos} one {# proyecto} other {# proyectos}}",
+    "portfolioEyebrow": "Portafolio de trabajos",
+    "chooseType": "¿Qué tipo de trabajo necesitas?",
+    "chooseTypeHint": "Selecciona una especialidad para ver proyectos terminados y comparar cada transformación.",
+    "selectTypePrompt": "Elige un tipo de trabajo",
+    "selectTypePromptHint": "Aquí aparecerán los proyectos de antes y después relacionados con tu selección.",
+    "selectProject": "Cambiar proyecto",
+    "realProjects": "Proyectos reales",
+    "projectCount": "{count, plural, one {# proyecto terminado} other {# proyectos terminados}}",
+    "before": "Antes",
+    "after": "Después",
+    "comparisonLabel": "Comparar el antes y después de {title}",
+    "dragHint": "Desliza para comparar",
+    "featured": "Destacado",
+    "requestSimilar": "Solicitar un trabajo similar",
+    "noProjects": "Próximamente verás trabajos aquí",
+    "noProjectsHint": "Esta especialidad ya está disponible. Estamos preparando las fotografías de proyectos terminados para mostrarte cada transformación.",
+    "noTypes": "Estamos preparando esta categoría",
+    "noTypesHint": "Publica los tipos de servicio relacionados con esta categoría en Contentful y aparecerán automáticamente aquí.",
+    "startHint": "Selecciona una categoría para descubrir especialidades y proyectos realizados.",
     "items": [
       {
         "key": "repairs",
         "title": "Reparaciones",
-        "description": "Puertas, paredes, canaletas, accesorios — arreglamos lo que está roto, rápido."
+        "description": "Puertas, paredes, canaletas y accesorios. Arreglamos lo que está roto rápidamente."
       },
       {
         "key": "installation",
         "title": "Instalaciones",
-        "description": "Montaje de TV, ventiladores, electrodomésticos y más — instalados correctamente."
+        "description": "Montaje de TV, ventiladores, electrodomésticos y más, todo instalado correctamente."
       },
       {
         "key": "maintenance",
@@ -42,14 +73,14 @@
       {
         "key": "assembly",
         "title": "Ensamblaje",
-        "description": "Muebles, estantes, equipos — ensamblados rápido y con seguridad."
+        "description": "Muebles, estantes y equipos, ensamblados rápidamente y con seguridad."
       }
     ]
   },
   "areas": {
     "eyebrow": "Cobertura completa",
     "title": "Cada Rincón de tu Hogar",
-    "subtitle": "Interiores y exteriores — lo cubrimos todo",
+    "subtitle": "Interiores y exteriores. Lo cubrimos todo.",
     "cardTitle": "Un solo profesional para toda tu lista.",
     "cardLocation": "Austin y alrededores",
     "list": [
@@ -65,8 +96,8 @@
     "subtitle": "Servicio local, comunicación clara y atención al detalle desde la primera llamada hasta el último tornillo.",
     "items": [
       {
-        "title": "Licenciado y Asegurado",
-        "description": "Cada trabajo realizado de forma segura y profesional — tu hogar está protegido."
+        "title": "Experiencia Comprobada",
+        "description": "Más de 30 proyectos realizados con cuidado y trabajo profesional."
       },
       {
         "title": "Local en Austin",
@@ -84,7 +115,7 @@
   },
   "booking": {
     "title": "Solicitar Servicio",
-    "subtitle": "Cuéntanos qué necesitas — nosotros nos encargamos",
+    "subtitle": "Cuéntanos qué necesitas. Nosotros nos encargamos.",
     "next": "Siguiente",
     "back": "Volver",
     "step1": {

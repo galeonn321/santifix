@@ -19,13 +19,18 @@
   --color-brand-blue: #075DE8;
   --color-brand-blue-light: #75A7FF;
   --color-brand-orange: #FF6413;
-  --font-sans: "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-sans: var(--font-aeonik), Arial, sans-serif;
+  --font-display: var(--font-aeonik-capitalised), var(--font-aeonik), Arial, sans-serif;
 }
 
 html,
 body {
   overscroll-behavior: none;
   scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 7rem;
 }
 
 ::selection {
@@ -36,6 +41,7 @@ body {
 button, a { -webkit-tap-highlight-color: transparent; }
 
 .eyebrow {
+  font-family: var(--font-aeonik-capitalised), var(--font-aeonik), Arial, sans-serif;
   font-size: .72rem;
   font-weight: 800;
   letter-spacing: .18em;
@@ -57,5 +63,5 @@ button, a { -webkit-tap-highlight-color: transparent; }
 body {
   background-color: #F8FAFD;
   color: #001A3B;
-  font-family: "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: var(--font-aeonik), Arial, sans-serif;
 }
