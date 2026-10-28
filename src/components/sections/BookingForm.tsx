@@ -1,8 +1,9 @@
 'use client';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTranslations } from 'next-intl';
 import { CheckCircle, ChevronRight, ChevronLeft } from 'lucide-react';
+import { PROJECT_CATEGORIES } from '@/lib/contentful';
 
 const SERVICES = ['Repairs', 'Installation', 'Maintenance', 'Assembly'];
 const AREAS = [
@@ -46,6 +47,26 @@ export default function BookingForm() {
   const [status, setStatus] = useState<Status>('idle');
   const [website, setWebsite] = useState('');
   const startedAt = useRef<number | null>(null);
+
+  useEffect(() => {
+    const onProjectRequest = (event: Event) => {
+      const detail = (event as CustomEvent<{ category: string; projectName: string }>).detail;
+      if (!detail || typeof detail.projectName !== 'string') return;
+      const index = PROJECT_CATEGORIES.findIndex(category => category === detail.category);
+      if (index < 0) return;
+      setForm(previous => ({
+        ...previous,
+        service: SERVICES[index],
+        description: [previous.description, servicesT('projectInquiry', { title: detail.projectName })].filter(Boolean).join('\n'),
+      }));
+      startedAt.current ??= Date.now();
+      setDir(1);
+      setStep(1);
+      setStatus('idle');
+    };
+    window.addEventListener('portfolio:request', onProjectRequest);
+    return () => window.removeEventListener('portfolio:request', onProjectRequest);
+  }, [servicesT]);
 
   const go = (next: 1 | 2 | 3) => {
     setDir(next > step ? 1 : -1);

@@ -43,8 +43,12 @@ CONTENTFUL_WEBHOOK_SECRET=
 
 ## Contentful portfolio
 
-The services portfolio reads published `serviceCategory`, `serviceType`, and
-`project` entries from Contentful. Configure the production webhook as a
-`POST` request to `/api/contentful/revalidate` and send the shared secret in
-the `x-contentful-webhook-secret` header. Subscribe only to Entry and Asset
-publish, unpublish, and delete events in the `master` environment.
+The portfolio reads published `projects` entries from Contentful, with a direct
+category (`repairs`, `installation`, `maintenance`, or `assembly`). Cards open a
+large before/after comparison modal with an optional photo gallery.
+
+See [the step-by-step Contentful setup guide](docs/contentful-portfolio.md) for
+exact field IDs, locales, API configuration, and publishing. The expected model
+is also documented in [contentful-project-model.json](docs/contentful-project-model.json).
+Existing projects using the previous service-type references need their new
+fields populated before they appear in this gallery.

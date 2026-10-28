@@ -1,0 +1,135 @@
+{
+  "name": "projects",
+  "description": "Portfolio project with before and after images. Expected content type API ID: projects.",
+  "displayField": "projectName",
+  "fields": [
+    {
+      "id": "projectName",
+      "name": "Project name",
+      "type": "Symbol",
+      "localized": true,
+      "required": true,
+      "validations": [
+        {
+          "size": {
+            "min": 1,
+            "max": 120
+          }
+        }
+      ]
+    },
+    {
+      "id": "category",
+      "name": "Category",
+      "type": "Symbol",
+      "localized": false,
+      "required": true,
+      "validations": [
+        {
+          "in": [
+            "repairs",
+            "installation",
+            "maintenance",
+            "assembly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "beforeImage",
+      "name": "Before image",
+      "type": "Link",
+      "linkType": "Asset",
+      "localized": false,
+      "required": true,
+      "validations": [
+        {
+          "linkMimetypeGroup": [
+            "image"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "afterImage",
+      "name": "After image",
+      "type": "Link",
+      "linkType": "Asset",
+      "localized": false,
+      "required": true,
+      "validations": [
+        {
+          "linkMimetypeGroup": [
+            "image"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "description",
+      "name": "Description",
+      "type": "Text",
+      "localized": true,
+      "required": true,
+      "validations": [
+        {
+          "size": {
+            "min": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gallery",
+      "name": "Gallery",
+      "type": "Array",
+      "localized": false,
+      "required": false,
+      "items": {
+        "type": "Link",
+        "linkType": "Asset",
+        "validations": [
+          {
+            "linkMimetypeGroup": [
+              "image"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "location",
+      "name": "Location",
+      "type": "Symbol",
+      "localized": false,
+      "required": false
+    },
+    {
+      "id": "featured",
+      "name": "Featured",
+      "type": "Boolean",
+      "localized": false,
+      "required": false,
+      "defaultValue": {
+        "en-US": false
+      }
+    },
+    {
+      "id": "order",
+      "name": "Order",
+      "type": "Integer",
+      "localized": false,
+      "required": false,
+      "validations": [
+        {
+          "range": {
+            "min": 0
+          }
+        }
+      ],
+      "defaultValue": {
+        "en-US": 0
+      }
+    }
+  ]
+}
